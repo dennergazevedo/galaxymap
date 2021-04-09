@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 /* ASSETS */
-import background from '../../assets/background01.jpg';
+import background from '../../assets/background02.png';
 import userIcon from '../../assets/userIcon.png';
 
 /* STYLED COMPONENTS */
@@ -33,11 +34,6 @@ function RegisterPage() {
     window.location.reload();
   }
 
-  function handleLogin(){
-    history.push('/');
-    window.location.reload();
-  }
-
   return (
     <Container>
       <Background src={background} alt="BACKGROUND" />
@@ -64,7 +60,9 @@ function RegisterPage() {
           </div>
         </ToggleContainer>
         <Button onClick={handleRegister}>REGISTRAR</Button>
-        <Register onClick={handleLogin}>Já tem uma conta? Entre agora!</Register>
+        <Link to="/" className="link">
+          <Register>Já tem uma conta? Entre agora!</Register>
+        </Link>
       </Body>
     </Container>
   );

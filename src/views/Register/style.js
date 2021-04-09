@@ -49,6 +49,10 @@ export const Body = styled.div`
   width: 90vw;
   min-height: 400px;
   z-index: 1;
+
+  .link{
+    margin-top: 10px;
+  }
 `;
 
 export const UserIcon = styled.img`

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 /* ASSETS */
 import background from '../../assets/background01.jpg';
@@ -39,11 +40,6 @@ function Login() {
     }
   }
 
-  function handleRegister(){
-    history.push('/register');
-    window.location.reload();
-  }
-
   return (
     <Container>
       <Background src={background} alt="BACKGROUND" />
@@ -70,7 +66,9 @@ function Login() {
           </div>
         </ToggleContainer>
         <Button onClick={handleLogin}>ENTRAR</Button>
-        <Register onClick={handleRegister}>Não tem uma conta? Cadastre-se!</Register>
+        <Link to="/register" className="link">
+          <Register>Não tem uma conta? Cadastre-se!</Register>
+        </Link>
       </Body>
     </Container>
   );
