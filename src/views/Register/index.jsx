@@ -21,9 +21,10 @@ import {
 import { FaRegEnvelope, FaUser } from 'react-icons/fa';
 
 /* SERVICES */
-import history from '../../services/history';
+import { useHistory } from 'react-router-dom';
 
 function RegisterPage() {
+  const history = useHistory();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
 

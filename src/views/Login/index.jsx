@@ -21,9 +21,10 @@ import {
 import { FaLock, FaUser } from 'react-icons/fa';
 
 /* SERVICES */
-import history from '../../services/history';
+import { useHistory } from 'react-router-dom';
 
 function Login() {
+  const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

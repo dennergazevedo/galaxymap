@@ -1,97 +1,70 @@
-import React from 'react';
-import Lottie from 'react-lottie';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 /* ASSETS */
-import background from '../../assets/travel-background.jpg';
-import * as viagemCard from '../../assets/json/viagemCard.json';
-import * as rocketCard from '../../assets/json/rocketCard.json';
-import * as planetCard from '../../assets/json/planetCard.json';
+import background from '../../assets/bg01.png';
+import smoke from '../../assets/smoke01.png';
+import rocket from '../../assets/rocket01.png';
 
 /* STYLED COMPONENTS */
 import {
   Container,
   Background,
-  Body,
-  Card,
-  Title,
-  Subtitle,
-  TitlePage
+  TitleBody,
+  TitlePage,
+  SubtitlePage,
+  Smoke,
+  Rocket,
+  ButtonTitle,
+  DescribeTitle
 } from './style.js';
 
 /* COMPONENTS */
-import Header from '../../components/Header';
+import Header from '../../components/Header'; 
 
 function Homepage() {
 
-  const viagemCardOption = {
-    loop: true,
-    autoplay: true,
-    animationData: viagemCard.default,
-    rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-    }
-  }
+  const history = useHistory();
+  const [showCards, setShowCards] = useState(false);
+  const [name] = useState('Nome do Usuário');
 
-  const rocketCardOption = {
-    loop: true,
-    autoplay: true,
-    animationData: rocketCard.default,
-    rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-    }
-  }
-
-  const planetCardOption = {
-    loop: true,
-    autoplay: true,
-    animationData: planetCard.default,
-    rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-    }
-  }
+  const toggleCards = () => {
+    setShowCards(true);
+    setTimeout(function(){
+      history.push('/embarque');
+    }, 2000)
+  };
 
   return (
     <Container>
       <Background src={background} alt="BACKGROUND" />
+      <Smoke src={smoke} initial={{bottom: 0}} animate={{bottom: '-100%'}} transition={{ duration: 2 }}/>
       <Header />
-      <TitlePage>
-        Comece a sua viagem!
-      </TitlePage>
-      <Body>
-        <Card>
-          <Title>
-            Viagem
-          </Title>
-          <Lottie className="imageCard" options={viagemCardOption} width={'150px'} height={'150px'}/>
-          <Subtitle>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer 
-            took a galley of type and scrambled it to make a type specimen book.
-          </Subtitle>
-        </Card>
-        <Card>
-          <Title>
-            Foguetes
-          </Title>
-          <Lottie className="imageCard" options={rocketCardOption} width={'150px'} height={'200px'}/>
-          <Subtitle>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer 
-            took a galley of type and scrambled it to make a type specimen book.
-          </Subtitle>
-        </Card>
-        <Card>
-          <Title>
-            Planetas
-          </Title>
-          <Lottie className="imageCard" options={planetCardOption} width={'150px'} height={'150px'}/>
-          <Subtitle>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer 
-            took a galley of type and scrambled it to make a type specimen book.
-          </Subtitle>
-        </Card>
-      </Body>
+      <TitleBody 
+        initial={{opacity: 0}} 
+        animate={{opacity: 1}} 
+        transition={{ duration: 2 }}>
+        <TitlePage>
+          Embarque
+        </TitlePage>
+        <SubtitlePage>
+          nessa jornada!
+        </SubtitlePage>
+        <DescribeTitle>
+          Ora ora, quem apareceu por aqui, bom te ver {name}. Seja bem-vindo meu caro amigo! Desde já, 
+          te convido a entrar em nosso foguete, pois tem vários planetas que acontecem coisas inusitadas…. 
+          (vrummmmm) faça muito barulho, e venha nessa jornada conosco.
+        </DescribeTitle>
+        <ButtonTitle onClick={toggleCards}>
+          embarcar
+        </ButtonTitle>
+        {
+          showCards ? 
+          <Rocket src={rocket} alt="ROCKET" initial={{top: 0}} animate={{top: -1000}} transition={{ duration: 2 }}/>
+          :
+          <Rocket src={rocket} alt="ROCKET" initial={{top: 1000}} animate={{top: 0}} transition={{ duration: 2 }}/>
+        }
+      </TitleBody>
     </Container>
   );
 }

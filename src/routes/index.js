@@ -9,6 +9,7 @@ import NotFound from '../views/NotFound';
 import Login from '../views/Login';
 import Register from '../views/Register';
 import Homepage from '../views/Homepage';
+import Embarque from '../views/Embarque';
 
 export default function Routes(){
 
@@ -18,6 +19,7 @@ export default function Routes(){
                 <Route path="/" exact component={Login} />
                 <Route path="/register" exact component={Register} />
                 <Route path="/home" exact component={Homepage} />
+                <Route path="/embarque" exact component={Embarque} />
                 <Route path="/" component={NotFound} />
             </Switch>
         </BrowserRouter>

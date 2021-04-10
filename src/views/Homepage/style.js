@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { motion } from "framer-motion";
 
 const float = keyframes`
     0% {
@@ -9,6 +10,18 @@ const float = keyframes`
     }
     100% {
         height: 100vh;
+    }
+`;
+
+const rocketFloat = keyframes`
+    0% {
+        transform: translatey(0vh);
+    }
+    50% {
+        transform: translatey(3vh);
+    }
+    100% {
+        transform: translatey(0vh);
     }
 `;
 
@@ -36,71 +49,29 @@ export const Background = styled.img`
   z-index: -1;
 `;
 
-export const Card = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 3px;
-    box-shadow: 1px 1px 10px #3335;
-    background-color: #FFF;
-    overflow: hidden;
-    opacity: 0.5;
-    transition: 0.5s all;
-    max-width: 300px;
-    min-height: 400px;
-    cursor: pointer;
-    border: none;
-
-    :hover{
-        opacity: 1;
-        transition: 0.2s all;
-    }
-
-    .imageCard{
-        margin: 20px 0px;
-        height: auto;
-    }
-
-    @media (max-width:1024px){
-        opacity: 1;
-    }
-
-    @media (max-width: 600px){
-        margin-bottom: 15px;
-    }
+export const Rocket = styled(motion.img)`
+    position: absolute;
+    right: 10vw;
+    margin-top: 50px;
+    width: auto;
+    height: 70vh;
+    transform: translatey(0px);
+    align-self: flex-end;
+    animation: 5s ${rocketFloat} ease-in-out infinite;
+    z-index: -1;
 `;
 
-export const Title = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #333;
-    color: #FFF;
-    text-transform: lowercase;
-    font-variant: small-caps;
-    font-size: 24px;
-    width: 100%;
-    height: 80px;
-`;
-
-export const Subtitle = styled.div`
-    color: #333;
-    font-size: 12px;
-    padding: 15px 10px;
-`;
-
-export const Body = styled.div`
+export const CardBody = styled(motion.div)`
+    position: absolute;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
+    width: auto;
     margin-top: 100px;
     overflow: hidden;
+    align-self: flex-end;
 
     @media (max-width: 1024px){
         overflow: scroll;
@@ -108,15 +79,26 @@ export const Body = styled.div`
     }
 `;
 
+export const TitleBody = styled(motion.div)`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    transition: 1s all;
+    padding: 0px 50px;
+`;
+
 export const TitlePage = styled.span`
     display: flex;
     margin-top: 20px;
-    font-size: 60px;
     color: #FFF;
     text-shadow: 2px 2px #3335;
-    font-style: italic;
-    font-family: none;
-    padding: 0px 40px;
+    font-size: 6rem;
+    font-weight: 600;
 
     @media (max-width: 1024px){
         font-size: 40px;
@@ -128,4 +110,48 @@ export const TitlePage = styled.span`
         font-size: 30px;
         align-self: flex-start;
     }
+`;
+
+export const SubtitlePage = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #FFF8;
+    text-shadow: 2px 2px #3335;
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-top: -10px;
+    margin-left: 100px;
+`;
+
+export const Smoke = styled(motion.img)`
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+`;
+
+export const ButtonTitle = styled.button`
+    background-color: #FFF;
+    border-radius: 100px;
+    padding: 10px 50px;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 50px;
+    transition: 0.5s all;
+
+    :hover{
+        background-color: #FFF9;
+        transition: 0.5s all;
+    }
+`;
+
+export const DescribeTitle = styled.div`
+    font-size: 1rem;
+    color: #FFF5;
+    width: 20vw;
+    min-width: 300px;
+    height: auto;
+    margin-top: 30px;
 `;
