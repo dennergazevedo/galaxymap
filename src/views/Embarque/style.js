@@ -44,13 +44,12 @@ export const CardBody = styled(motion.div)`
     align-items: center;
     justify-content: space-around;
     width: auto;
-    overflow: hidden;
     max-width: 1400px;
     margin: 100px auto;
 
     @media (max-width: 1024px){
-        overflow: scroll;
         margin-top: 0px;
+        overflow: scroll;
     }
 `;
 
@@ -58,4 +57,17 @@ export const Smoke = styled(motion.img)`
     position: absolute;
     bottom: 0;
     width: 100vw;
+`;
+
+export const Title = styled.div`
+    display: flex;
+    font-size: 3rem;
+    color: #FFF;
+    padding: 0px 30px;
+    font-weight: 600;
+    margin-bottom: 30px;
+
+    @media (max-width: 1024px){
+        font-size: 2rem;
+    }
 `;

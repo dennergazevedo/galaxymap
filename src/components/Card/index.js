@@ -14,7 +14,7 @@ function Card({title, option, describe}) {
       <Title>
         {title}
       </Title>
-      <Lottie className="imageCard" options={option} width={'150px'} height={'150px'}/>
+      <Lottie options={option} width={'120px'} height={'120px'} style={{pointerEvents:"none", marginTop: "30px"}}/>
       <Describe>
         {describe}
       </Describe>

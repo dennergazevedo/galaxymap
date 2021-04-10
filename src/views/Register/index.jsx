@@ -23,6 +23,9 @@ import { FaRegEnvelope, FaUser } from 'react-icons/fa';
 /* SERVICES */
 import { useHistory } from 'react-router-dom';
 
+/* COMPONENTS */
+import Footer from '../../components/Footer';
+
 function RegisterPage() {
   const history = useHistory();
   const [email, setEmail] = useState('');
@@ -65,6 +68,7 @@ function RegisterPage() {
           <Register>Já tem uma conta? Entre agora!</Register>
         </Link>
       </Body>
+      <Footer/>
     </Container>
   );
 }

@@ -11,11 +11,13 @@ import {
   Container,
   Background,
   CardBody,
+  Title
 } from './style.js';
 
 /* COMPONENTS */
 import Header from '../../components/Header'; 
 import Card from '../../components/Card';
+import Footer from '../../components/Footer';
 
 function Embarque() {
 
@@ -50,6 +52,9 @@ function Embarque() {
     <Container>
       <Background src={background} alt="BACKGROUND" />
       <Header />
+      <Title>
+        Por onde quer começar?
+      </Title>
         <CardBody initial={{opacity: 0}} animate={{opacity: 1}} transition={{ duration: 2 }}>
           <Card 
             title={'Viagem'}
@@ -67,6 +72,7 @@ function Embarque() {
             describe={'Todo sistema solar a um click de distância! Conheça os planetas que nos conectamos.'}
           />
         </CardBody>
+        <Footer />
     </Container>
   );
 }

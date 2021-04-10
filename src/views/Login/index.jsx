@@ -23,6 +23,9 @@ import { FaLock, FaUser } from 'react-icons/fa';
 /* SERVICES */
 import { useHistory } from 'react-router-dom';
 
+/* COMPONENTS */
+import Footer from '../../components/Footer';
+
 function Login() {
   const history = useHistory();
   const [email, setEmail] = useState('');
@@ -71,6 +74,7 @@ function Login() {
           <Register>Não tem uma conta? Cadastre-se!</Register>
         </Link>
       </Body>
+      <Footer />
     </Container>
   );
 }

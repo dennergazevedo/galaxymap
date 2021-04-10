@@ -21,6 +21,7 @@ import {
 
 /* COMPONENTS */
 import Header from '../../components/Header'; 
+import Footer from '../../components/Footer'; 
 
 function Homepage() {
 
@@ -60,11 +61,12 @@ function Homepage() {
         </ButtonTitle>
         {
           showCards ? 
-          <Rocket src={rocket} alt="ROCKET" initial={{top: 0}} animate={{top: -1000}} transition={{ duration: 2 }}/>
+          <Rocket className="rocket" src={rocket} alt="ROCKET" initial={{top: 0}} animate={{top: -1000}} transition={{ duration: 2 }}/>
           :
-          <Rocket src={rocket} alt="ROCKET" initial={{top: 1000}} animate={{top: 0}} transition={{ duration: 2 }}/>
+          <Rocket className="rocket" src={rocket} alt="ROCKET" initial={{top: 1000}} animate={{top: 0}} transition={{ duration: 2 }}/>
         }
       </TitleBody>
+      <Footer />
     </Container>
   );
 }

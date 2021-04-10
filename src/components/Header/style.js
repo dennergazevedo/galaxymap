@@ -34,6 +34,10 @@ export const Body = styled.div`
 export const Logomarca = styled.img`
   height: 50px;
   width: auto;
+
+  @media (max-width: 600px){
+    height: 30px;
+  }
 `;
 
 export const LinkContainer = styled.div`
@@ -52,6 +56,50 @@ export const LinkContainer = styled.div`
     :hover{
       font-weight: 600;
       transition: 0.2s all;
+    }
+  }
+`;
+
+export const MenuButton = styled.button`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  outline: 0;
+  color: #FFF;
+  font-size: 24px;
+`;
+
+export const MenuContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px 30px;
+
+  .closeButton{
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .item{
+    width: 100%;
+    min-width: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    font-weight: 600;
+    padding: 15px 0px;
+    border-bottom: 1px solid #F2F2F2;
+
+    .icon{
+      color: #60CAAD;
     }
   }
 `;

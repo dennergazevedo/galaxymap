@@ -90,6 +90,12 @@ export const TitleBody = styled(motion.div)`
     position: relative;
     transition: 1s all;
     padding: 0px 50px;
+
+    .rocket{
+        @media (max-width: 600px){
+            display: none;
+        }
+    }
 `;
 
 export const TitlePage = styled.span`
@@ -107,7 +113,7 @@ export const TitlePage = styled.span`
 
     @media (max-width: 600px){
         max-width: 80vw;
-        font-size: 30px;
+        font-size: 2.5rem;
         align-self: flex-start;
     }
 `;
@@ -116,12 +122,24 @@ export const SubtitlePage = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: #FFF8;
+    color: #60CAAD;
     text-shadow: 2px 2px #3335;
     font-size: 3.5rem;
     font-weight: 600;
     margin-top: -10px;
     margin-left: 100px;
+
+    @media (max-width: 1024px){
+        margin-left: 0;
+        font-size: 24px;
+        margin-top: -15px;
+    }
+
+    @media (max-width: 600px){
+        max-width: 80vw;
+        font-size: 1.5rem;
+        align-self: flex-start;
+    }
 `;
 
 export const Smoke = styled(motion.img)`
@@ -131,7 +149,7 @@ export const Smoke = styled(motion.img)`
 `;
 
 export const ButtonTitle = styled.button`
-    background-color: #FFF;
+    background-color: #60CAAD;
     border-radius: 100px;
     padding: 10px 50px;
     text-transform: lowercase;
@@ -140,9 +158,11 @@ export const ButtonTitle = styled.button`
     font-size: 1rem;
     margin-top: 50px;
     transition: 0.5s all;
+    color: #FFF;
+    opacity: 1;
 
     :hover{
-        background-color: #FFF9;
+        opacity: 0.5;
         transition: 0.5s all;
     }
 `;
@@ -154,4 +174,9 @@ export const DescribeTitle = styled.div`
     min-width: 300px;
     height: auto;
     margin-top: 30px;
+
+    @media (max-width: 600px){
+        font-size: 0.8rem;
+        min-width: 220px;
+    }
 `;
