@@ -18,7 +18,7 @@ import {
 import Header from '../../components/Header'; 
 import { TextField } from '@material-ui/core';
 
-function Homepage() {
+function Viagem() {
 
   const [startDate, setStartDate] = useState('2021-01-01');
   const [dataChegada] = useState('2021-01-01');
@@ -108,4 +108,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Viagem;

@@ -41,7 +41,6 @@ function Header() {
 
   function resizeComponent(){
     setSize(window.innerWidth);
-    console.log(window.innerWidth);
   }
 
   return (
@@ -56,8 +55,12 @@ function Header() {
             <Link to="/viagem">
               <span className="link">Viagem</span>
             </Link>
-            <span className="link">Foguetes</span>
-            <span className="link">Planetas</span>
+            <Link to="/foguetes">
+              <span className="link">Foguetes</span>
+            </Link>
+            <Link to="/planetas">
+              <span className="link">Planetas</span>
+            </Link>
           </LinkContainer>
         :
           <>
@@ -74,8 +77,12 @@ function Header() {
                 <Link to="/viagem">
                   <span className="item"><FaMapSigns className="icon"/> Viagem</span>
                 </Link>
-                <span className="item"><FaRocket className="icon"/> Foguetes</span>
-                <span className="item"><IoIosPlanet className="icon"/> Planetas</span>
+                <Link to="/foguetes">
+                  <span className="item"><FaRocket className="icon"/> Foguetes</span>
+                </Link>
+                <Link to="/planetas">
+                  <span className="item"><IoIosPlanet className="icon"/> Planetas</span>
+                </Link>
               </MenuContainer>
             </SwipeableDrawer>
           </>
