@@ -9,7 +9,8 @@ import {
   FaTimes,
   FaBars,
   FaMapSigns,
-  FaRocket
+  FaRocket,
+  FaUser
 } from 'react-icons/fa';
 import { 
   IoIosPlanet
@@ -50,16 +51,22 @@ function Header() {
           <Logomarca src={logomarca} alt="LOGOMARGA" />
         </Link>
         {
-          size > 600?
+          size > 1024?
           <LinkContainer>
-            <Link to="/viagem">
-              <span className="link">Viagem</span>
+            <Link className="link" to="/home">
+              home
             </Link>
-            <Link to="/foguetes">
-              <span className="link">Foguetes</span>
+            <Link className="link" to="/viagem">
+              Viagem
             </Link>
-            <Link to="/planetas">
-              <span className="link">Planetas</span>
+            <Link className="link" to="/foguetes">
+              Foguetes
+            </Link>
+            <Link className="link" to="/planetas">
+              Planetas
+            </Link>
+            <Link className="link" to="/perfil">
+              Perfil
             </Link>
           </LinkContainer>
         :
@@ -74,6 +81,9 @@ function Header() {
               onOpen={toggleMenu}>
               <MenuContainer>
                 <FaTimes onClick={toggleMenu} className="closeButton"/>
+                <Link to="/home">
+                  <span className="item"><FaMapSigns className="icon"/> Home</span>
+                </Link>
                 <Link to="/viagem">
                   <span className="item"><FaMapSigns className="icon"/> Viagem</span>
                 </Link>
@@ -82,6 +92,9 @@ function Header() {
                 </Link>
                 <Link to="/planetas">
                   <span className="item"><IoIosPlanet className="icon"/> Planetas</span>
+                </Link>
+                <Link to="/perfil">
+                  <span className="item"><FaUser className="icon"/> Perfil</span>
                 </Link>
               </MenuContainer>
             </SwipeableDrawer>

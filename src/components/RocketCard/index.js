@@ -26,7 +26,7 @@ function RocketCard({ name,speed, cost, capacity, image }) {
       </Attribute>
       <Attribute>
         <FaBtc className="icon" />
-        {`${Number(cost).toFixed(5)}BTC`}
+        {`${Number(cost).toFixed(5)} BTC / HRL`}
       </Attribute>
       <Attribute>
         <BsBatteryHalf className="icon" />

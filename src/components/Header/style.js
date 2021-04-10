@@ -32,7 +32,7 @@ export const Body = styled.div`
 `;
 
 export const Logomarca = styled.img`
-  height: 50px;
+  height: 45px;
   width: auto;
 
   @media (max-width: 600px){
@@ -52,6 +52,10 @@ export const LinkContainer = styled.div`
     font-weight: 400;
     cursor: pointer;
     transition: 0.2s all;
+    color: #FFF;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    margin: 0px 10px;
 
     :hover{
       font-weight: 600;

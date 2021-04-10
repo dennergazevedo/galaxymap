@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 /* ASSETS */
-import background from '../../assets/bgviagem.jpg';
+import background from '../../assets/bg01.png';
 
 /* STYLED COMPONENTS */
 import {

@@ -13,12 +13,12 @@ import {
 
 /* COMPONENTS */
 import Header from '../../components/Header'; 
-import RocketCard from '../../components/RocketCard'; 
+import PlanetCard from '../../components/PlanetCard'; 
 
 /* ASSETS */
-import rocket from '../../assets/rocket02.png';
+import terra from '../../assets/earth.png';
 
-function Foguetes() {
+function Planetas() {
 
   const mapTemp = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 
@@ -31,7 +31,7 @@ function Foguetes() {
         animate={{opacity: 1}} 
         transition={{ duration: 1 }}
       >
-        Nossos foguetes
+        Encontre seu destino
       </Title>
       <Body
         initial={{opacity: 0}} 
@@ -41,12 +41,12 @@ function Foguetes() {
 
         {
           mapTemp.map(item => {
-            return <RocketCard
-              name={"X1A"}
-              speed={"56000ms"}
-              cost={"0.00003"}
-              capacity={"15AN"}
-              image={rocket}
+            return <PlanetCard
+              name={"Terra"}
+              size={"12.742km"}
+              mass={"5,972 × 10^24 kg"}
+              distance={"150 × 10^6 km"}
+              image={terra}
             />
           })
         }
@@ -56,4 +56,4 @@ function Foguetes() {
   );
 }
 
-export default Foguetes;
+export default Planetas;
