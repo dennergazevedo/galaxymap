@@ -97,6 +97,7 @@ export const MenuContainer = styled.div`
     font-weight: 600;
     padding: 15px 0px;
     border-bottom: 1px solid #F2F2F2;
+    color: #333;
 
     .icon{
       color: #60CAAD;

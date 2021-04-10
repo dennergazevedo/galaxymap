@@ -31,7 +31,7 @@ import logomarca from '../../assets/logo-completa.png';
 function Header() {
 
   const [menu, setMenu] = useState(false);
-  const [size, setSize] = useState(1024);
+  const [size, setSize] = useState(window.innerWidth);
 
   const toggleMenu = () => setMenu(!menu);
 
@@ -53,7 +53,9 @@ function Header() {
         {
           size > 600?
           <LinkContainer>
-            <span className="link">Viagem</span>
+            <Link to="/viagem">
+              <span className="link">Viagem</span>
+            </Link>
             <span className="link">Foguetes</span>
             <span className="link">Planetas</span>
           </LinkContainer>
@@ -69,7 +71,9 @@ function Header() {
               onOpen={toggleMenu}>
               <MenuContainer>
                 <FaTimes onClick={toggleMenu} className="closeButton"/>
-                <span className="item"><FaMapSigns className="icon"/> Viagem</span>
+                <Link to="/viagem">
+                  <span className="item"><FaMapSigns className="icon"/> Viagem</span>
+                </Link>
                 <span className="item"><FaRocket className="icon"/> Foguetes</span>
                 <span className="item"><IoIosPlanet className="icon"/> Planetas</span>
               </MenuContainer>

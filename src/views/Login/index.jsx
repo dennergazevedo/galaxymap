@@ -40,7 +40,6 @@ function Login() {
       toggle();
     }else{
       history.push('/home');
-      window.location.reload();
     }
   }
 

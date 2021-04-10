@@ -60,16 +60,19 @@ function Embarque() {
             title={'Viagem'}
             option={viagemCardOption}
             describe={'Venha com a gente fazer a viagem da sua vida, conheça nosso sistema solar e toda a vida que o habita.'}
+            link={"/viagem"}
           />
           <Card 
             title={'Foguetes'}
             option={rocketCardOption}
             describe={'Com pressa? Apenas um passeio? Veja nossas naves e escolha qual melhor atenda a suas necessidades, lembre-se que seu conforto é nossa prioridade sempre.'}
+            link={"/foguetes"}
           />
           <Card 
             title={'Planetas'}
             option={planetCardOption}
             describe={'Todo sistema solar a um click de distância! Conheça os planetas que nos conectamos.'}
+            link={"/planetas"}
           />
         </CardBody>
         <Footer />

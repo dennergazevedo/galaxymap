@@ -10,6 +10,7 @@ import Login from '../views/Login';
 import Register from '../views/Register';
 import Homepage from '../views/Homepage';
 import Embarque from '../views/Embarque';
+import Viagem from '../views/Viagem';
 
 export default function Routes(){
 
@@ -20,6 +21,7 @@ export default function Routes(){
                 <Route path="/register" exact component={Register} />
                 <Route path="/home" exact component={Homepage} />
                 <Route path="/embarque" exact component={Embarque} />
+                <Route path="/viagem" exact component={Viagem} />
                 <Route path="/" component={NotFound} />
             </Switch>
         </BrowserRouter>

@@ -35,7 +35,6 @@ function RegisterPage() {
 
   function handleRegister(){
     history.push('/home');
-    window.location.reload();
   }
 
   return (
