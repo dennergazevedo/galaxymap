@@ -71,7 +71,7 @@ function Embarque() {
           <Card 
             title={'Planetas'}
             option={planetCardOption}
-            describe={'Todo sistema solar a um click de distância! Conheça os planetas que nos conectamos.'}
+            describe={'Vários planetas a um click de distância! Conheça os planetas que nos conectamos.'}
             link={"/planetas"}
           />
         </CardBody>
