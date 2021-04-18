@@ -28,4 +28,16 @@ export default class UserController {
       return res.status(200).json(rows)
     })
   }
+
+  async update(req: Request, res: Response) {
+    const {email, name}: IUser = req.body;
+    con.query(
+      `SELECT * FROM users WHERE name = '${name}' AND email = '${email}'`, 
+      (err, rows) => {
+      if (err) {
+        return res.status(404).json("Usuário não encontrado!");
+      }
+      return res.status(200).json(rows)
+    })
+  }
 }
