@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
 import { con } from "../../config/database";
+import bcrypt from 'bcryptjs';
 
 interface IUser {
   name: string;
   email: string;
+  password: string;
 }
 
 interface IParams{
@@ -12,9 +14,10 @@ interface IParams{
 
 export default class UserController {
   async register(req: Request, res: Response) {
-    const {email, name}: IUser = req.body;
+    const { email, name, password }: IUser = req.body;
+    const hash = await bcrypt.hash(password, 10);
     con.query(
-      `INSERT INTO users (email, name) VALUES ('${email}', '${name}')`, 
+      `INSERT INTO users (email, name, password) VALUES ('${email}', '${name}', '${hash}')`, 
       (err, rows) => {
       if (err) throw err
       return res.status(200).json(`User ${name} created with success!`)
@@ -22,14 +25,19 @@ export default class UserController {
   }
 
   async login(req: Request, res: Response) {
-    const {email, name}: IUser = req.body;
+    const {email, password}: IUser = req.body;
     con.query(
-      `SELECT * FROM users WHERE name = '${name}' AND email = '${email}'`, 
-      (err, rows) => {
+      `SELECT * FROM users WHERE email = '${email}'`, 
+      async (err, rows) => {
       if (err) {
         return res.status(404).json("User not found.");
       }
-      return res.status(200).json(rows)
+      const response = await bcrypt.compare(password, rows.password);
+      if(response){
+        console.log(response);
+        return res.status(200).json(rows)
+      }
+      return res.status(401).json('Invalid credentials.')
     })
   }
 

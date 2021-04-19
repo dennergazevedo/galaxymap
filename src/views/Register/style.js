@@ -77,7 +77,7 @@ export const ToggleContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  height: ${props => props.show ? "100px" : "0px"};
+  height: ${props => props.show ? "150px" : "0px"};
   margin: 10px 0px;
   transition: 1s all;
   overflow: hidden;

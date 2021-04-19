@@ -1,6 +1,7 @@
 export const user = `CREATE TABLE IF NOT EXISTS lcqqpl5pd6dme6c8.users (
   email VARCHAR(100) NOT NULL,
   name VARCHAR(100) NULL,
+  password VARCHAR(100) NOT NULL,
   PRIMARY KEY (email))`
 
 export const rocket = `CREATE TABLE IF NOT EXISTS lcqqpl5pd6dme6c8.rockets (

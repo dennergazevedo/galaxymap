@@ -4,6 +4,7 @@ import { Routes } from "./routes";
 import cors from 'cors';
 import { con } from "./config/database";
 import { user, planets, rocket, sollar_systems, travel } from "./config/createDatabase";
+import { populatePlanets, populateRocket, populateSollar_systems, populateUser } from './config/populateDatabase';
 
 class App {
   public app: express.Application;
@@ -47,6 +48,24 @@ class App {
       if (err) throw err
       console.log('TRAVEL TABLE CREATED')
     })
+
+    // POPULATE QUERYS
+    // con.query(populateUser, (err, rows) => {
+    //   if (err) throw err
+    //   console.log('USER POPULATED')
+    // })
+    // con.query(populateSollar_systems, (err, rows) => {
+    //   if (err) throw err
+    //   console.log('SOLLAR SYSTEMS POPULATED')
+    // })
+    // con.query(populatePlanets, (err, rows) => {
+    //   if (err) throw err
+    //   console.log('PLANETS POPULATED')
+    // })
+    // con.query(populateRocket, (err, rows) => {
+    //   if (err) throw err
+    //   console.log('ROCKET POPULATED')
+    // })
   }
 }
 

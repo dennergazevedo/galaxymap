@@ -18,7 +18,7 @@ import {
 } from './style.js'
 
 /* ICONS */
-import { FaLock, FaUser } from 'react-icons/fa';
+import { FaEnvelope, FaUser } from 'react-icons/fa';
 
 /* SERVICES */
 import { useHistory } from 'react-router-dom';
@@ -28,8 +28,8 @@ import Footer from '../../components/Footer';
 
 function Login() {
   const history = useHistory();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
   const [show, setShow] = useState(false);
 
@@ -52,19 +52,19 @@ function Login() {
           <div>
             <FaUser className="icon"/>
             <Input 
+              type="name" 
+              value={name} 
+              onChange={e => setName(e.target.email)}
+              placeholder="João Silva"
+              />
+          </div>
+          <div>
+            <FaEnvelope className="icon"/>
+            <Input 
               type="email" 
               value={email} 
               onChange={e => setEmail(e.target.email)}
               placeholder="exemplo@email.com"
-              />
-          </div>
-          <div>
-            <FaLock className="icon"/>
-            <Input 
-              type="password" 
-              value={password} 
-              onChange={e => setPassword(e.target.email)}
-              placeholder="********"
               />
           </div>
         </ToggleContainer>
