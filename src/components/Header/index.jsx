@@ -23,14 +23,19 @@ import {
   LinkContainer,
   Logomarca,
   MenuButton,
-  MenuContainer
+  MenuContainer,
+  ButtonLink
 } from './style';
 
 /* ASSETS */
 import logomarca from '../../assets/logo-completa.png';
 
+/* CONTEXT */
+import { useLogin } from '../../context';
+
 function Header() {
 
+  const { handleLogout } = useLogin();
   const [menu, setMenu] = useState(false);
   const [size, setSize] = useState(window.innerWidth);
 
@@ -65,9 +70,9 @@ function Header() {
             <Link className="link" to="/planetas">
               Planetas
             </Link>
-            <Link className="link" to="/perfil">
-              Perfil
-            </Link>
+            <ButtonLink onClick={() => handleLogout()}>
+              sair
+            </ButtonLink>
           </LinkContainer>
         :
           <>

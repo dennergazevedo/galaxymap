@@ -29,13 +29,12 @@ export default class UserController {
     con.query(
       `SELECT * FROM users WHERE email = '${email}'`, 
       async (err, rows) => {
-      if (err) {
+      if (err || rows.length === 0) {
         return res.status(404).json("User not found.");
       }
-      const response = await bcrypt.compare(password, rows.password);
+      const response = await bcrypt.compare(password, rows[0].password);
       if(response){
-        console.log(response);
-        return res.status(200).json(rows)
+        return res.status(200).json({name: rows[0].name, email: rows[0].email})
       }
       return res.status(401).json('Invalid credentials.')
     })

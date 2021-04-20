@@ -8,11 +8,16 @@ import { ToastContainer } from 'react-toastify';
 /* STYLES */ 
 import GlobalStyles from './styles/global';
 
+// CONTEXT
+import { UserProvider } from './context';
+
 function App(){
   return(
     <>
       <GlobalStyles />
-      <Routes/>
+      <UserProvider>
+        <Routes/>
+      </UserProvider>
       <ToastContainer autoClose={3000}/>
     </>
   );

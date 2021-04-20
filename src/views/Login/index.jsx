@@ -18,28 +18,28 @@ import {
 } from './style.js'
 
 /* ICONS */
-import { FaEnvelope, FaUser } from 'react-icons/fa';
-
-/* SERVICES */
-import { useHistory } from 'react-router-dom';
+import { FaEnvelope, FaLock } from 'react-icons/fa';
 
 /* COMPONENTS */
 import Footer from '../../components/Footer';
 
+/* CONTEXT */
+import { useLogin } from '../../context';
+
 function Login() {
-  const history = useHistory();
-  const [name, setName] = useState('');
+  const { handleLogin } = useLogin();
+  const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
   const [show, setShow] = useState(false);
 
   const toggle = () => setShow(!show);
 
-  function handleLogin(){
+  function loginRequest(){
     if(!show){
       toggle();
     }else{
-      history.push('/home');
+      handleLogin(email, password)
     }
   }
 
@@ -50,25 +50,25 @@ function Login() {
         <UserIcon src={userIcon} alt="USERICON" />
         <ToggleContainer show={show}>
           <div>
-            <FaUser className="icon"/>
-            <Input 
-              type="name" 
-              value={name} 
-              onChange={e => setName(e.target.email)}
-              placeholder="João Silva"
-              />
-          </div>
-          <div>
             <FaEnvelope className="icon"/>
             <Input 
               type="email" 
               value={email} 
-              onChange={e => setEmail(e.target.email)}
+              onChange={e => setEmail(e.target.value)}
               placeholder="exemplo@email.com"
               />
           </div>
+          <div>
+            <FaLock className="icon"/>
+            <Input 
+              type="password" 
+              value={password} 
+              onChange={e => setPassword(e.target.value)}
+              placeholder="********"
+              />
+          </div>
         </ToggleContainer>
-        <Button onClick={handleLogin}>ENTRAR</Button>
+        <Button onClick={loginRequest}>ENTRAR</Button>
         <Link to="/register" className="link">
           <Register>Não tem uma conta? Cadastre-se!</Register>
         </Link>

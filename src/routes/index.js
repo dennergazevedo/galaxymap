@@ -2,7 +2,8 @@
 import React from 'react';
 
 // ROUTE
-import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { Switch, BrowserRouter } from 'react-router-dom';
+import Route from './Route';
 
 // COMPONENTES
 import NotFound from '../views/NotFound';
@@ -19,13 +20,13 @@ export default function Routes(){
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact component={Login} />
-                <Route path="/register" exact component={Register} />
-                <Route path="/home" exact component={Homepage} />
-                <Route path="/embarque" exact component={Embarque} />
-                <Route path="/viagem" exact component={Viagem} />
-                <Route path="/foguetes" exact component={Foguetes} />
-                <Route path="/planetas" exact component={Planetas} />
+                <Route path="/" exact component={Login} Login/>
+                <Route path="/register" exact component={Register} Login/>
+                <Route path="/home" exact component={Homepage} isPrivate/>
+                <Route path="/embarque" exact component={Embarque} isPrivate/>
+                <Route path="/viagem" exact component={Viagem} isPrivate/>
+                <Route path="/foguetes" exact component={Foguetes} isPrivate/>
+                <Route path="/planetas" exact component={Planetas} isPrivate/>
                 <Route path="/" component={NotFound} />
             </Switch>
         </BrowserRouter>

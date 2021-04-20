@@ -64,6 +64,22 @@ export const LinkContainer = styled.div`
   }
 `;
 
+export const ButtonLink = styled.div`
+  background-color: transparent;
+  font-weight: 400;
+  cursor: pointer;
+  transition: 0.2s all;
+  color: #FFF;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  margin: 0px 10px;
+  
+  :hover{
+    font-weight: 600;
+    transition: 0.2s all;
+  }
+`;
+
 export const MenuButton = styled.button`
   display: flex;
   flex-direction: row;
