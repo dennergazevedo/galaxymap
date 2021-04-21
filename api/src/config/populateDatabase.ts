@@ -1,4 +1,4 @@
-export const populateUser = `INSERT INTO users (name, email)
+export const populateUser = `INSERT INTO users (name, email, password)
 VALUES 
 ("Denner Azevedo", "denner.azevedo@aluno.ufop.edu.br"), 
 ("João", "joao@teste.com"), 

@@ -4,7 +4,8 @@ import React from 'react';
 import {
   Container,
   Image,
-  Attribute
+  Attribute,
+  Body
 } from './style.js';
 
 /* ICONS */
@@ -16,22 +17,24 @@ function RocketCard({ name,speed, cost, capacity, image }) {
   return (
     <Container>
       <Image src={image} alt={name}/>
-      <Attribute>
-        <FaRocket className="icon" />
-        {name}
-      </Attribute>
-      <Attribute>
-        <HiLightningBolt className="icon" />
-        {speed}
-      </Attribute>
-      <Attribute>
-        <FaBtc className="icon" />
-        {`${Number(cost).toFixed(5)} BTC / HRL`}
-      </Attribute>
-      <Attribute>
-        <BsBatteryHalf className="icon" />
-        {capacity}
-      </Attribute>
+      <Body>
+        <Attribute>
+          <FaRocket className="icon" />
+          {name}
+        </Attribute>
+        <Attribute>
+          <HiLightningBolt className="icon" />
+          {speed}ALH
+        </Attribute>
+        <Attribute>
+          <FaBtc className="icon" />
+          {`${Number(cost).toFixed(5)} BTC / ALH`}
+        </Attribute>
+        <Attribute>
+          <BsBatteryHalf className="icon" />
+          {capacity} AL
+        </Attribute>
+      </Body>
     </Container>
   );
 }

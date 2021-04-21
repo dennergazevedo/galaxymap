@@ -24,7 +24,6 @@ export const planets = `CREATE TABLE IF NOT EXISTS lcqqpl5pd6dme6c8.planets (
   name VARCHAR(100) NOT NULL,
   size FLOAT NULL,
   mass FLOAT NULL,
-  position VARCHAR(50) NULL,
   image VARCHAR(100) NULL,
   distance FLOAT NULL,
   sollar_systems VARCHAR(100) NOT NULL,

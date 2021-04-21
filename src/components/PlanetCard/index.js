@@ -4,7 +4,8 @@ import React from 'react';
 import {
   Container,
   Image,
-  Attribute
+  Attribute,
+  Body
 } from './style.js';
 
 /* ICONS */
@@ -16,22 +17,24 @@ function PlanetCard({ name, size, mass, distance, image }) {
   return (
     <Container>
       <Image src={image} alt={name}/>
-      <Attribute>
-        <IoPlanet className="icon" />
-        {name}
-      </Attribute>
-      <Attribute>
-        <IoResize className="icon" />
-        {size}
-      </Attribute>
-      <Attribute>
-        <GiWeight className="icon" />
-        {mass}
-      </Attribute>
-      <Attribute>
-        <RiPinDistanceFill className="icon" />
-        {distance}
-      </Attribute>
+      <Body>
+        <Attribute>
+          <IoPlanet className="icon" />
+          {name}
+        </Attribute>
+        <Attribute>
+          <IoResize className="icon" />
+          {size}
+        </Attribute>
+        <Attribute>
+          <GiWeight className="icon" />
+          {mass}
+        </Attribute>
+        <Attribute>
+          <RiPinDistanceFill className="icon" />
+          {distance}
+        </Attribute>
+      </Body>
     </Container>
   );
 }

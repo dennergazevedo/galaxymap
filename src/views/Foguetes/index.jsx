@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 /* ASSETS */
 import background from '../../assets/bg01.png';
@@ -16,11 +16,20 @@ import Header from '../../components/Header';
 import RocketCard from '../../components/RocketCard'; 
 
 /* ASSETS */
-import rocket from '../../assets/rocket02.png';
+import api from '../../services/api';
 
 function Foguetes() {
 
-  const mapTemp = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+  const [rockets, setRockets] = useState();
+
+  async function loadRockets(){
+    const response = await api.get('/search-all-rockets');
+    setRockets(response.data);
+  }
+
+  useEffect(()=>{
+    loadRockets();
+  }, [])
 
   return (
     <Container>
@@ -40,13 +49,13 @@ function Foguetes() {
       >
 
         {
-          mapTemp.map(item => {
+          rockets && rockets.map(item => {
             return <RocketCard
-              name={"X1A"}
-              speed={"56000ms"}
-              cost={"0.00003"}
-              capacity={"15AN"}
-              image={rocket}
+              name={item.name}
+              speed={item.speed}
+              cost={item.cost}
+              capacity={item.capacity}
+              image={item.image}
             />
           })
         }

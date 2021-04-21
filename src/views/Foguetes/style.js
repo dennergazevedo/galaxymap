@@ -48,8 +48,10 @@ export const Body = styled(motion.div)`
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0px 30px;
+    padding: 30px;
     overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
     ::-webkit-scrollbar{
         display: none;

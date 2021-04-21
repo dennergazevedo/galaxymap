@@ -50,6 +50,8 @@ export const Body = styled(motion.div)`
     margin: 0 auto;
     padding: 0px 30px;
     overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
     ::-webkit-scrollbar{
         display: none;

@@ -6,7 +6,7 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 300px;
-    cursor: pointer;
+    cursor: default;
     border: 1px solid #FFF2;
     border-top: 5px solid #FFF2;
     border-bottom: 5px solid #FFF2;
@@ -14,12 +14,28 @@ export const Container = styled.div`
     margin-bottom: 10px;
     padding-bottom: 10px;
     background-color: #FFF1;
+    height: 480px;
+
+    :hover{
+        background-color: #FFF2;
+    }
+`;
+
+export const Body = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
 `;
 
 export const Image = styled.img`
     width: 250px;
     height: auto;
+    max-height: 250px;
     margin-bottom: 10px;
+    object-fit: contain;
+    margin-top: 10px;
 `;
 
 export const Attribute = styled.div`

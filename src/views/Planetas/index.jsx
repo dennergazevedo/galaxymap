@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 /* ASSETS */
 import background from '../../assets/bg01.png';
@@ -15,12 +15,21 @@ import {
 import Header from '../../components/Header'; 
 import PlanetCard from '../../components/PlanetCard'; 
 
-/* ASSETS */
-import terra from '../../assets/earth.png';
+/* SERVICES */
+import api from '../../services/api';
 
 function Planetas() {
 
-  const mapTemp = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+  const [planets, setPlanets] = useState();
+
+  async function loadPlanets(){
+    const response = await api.get('/search-all-planets');
+    setPlanets(response.data);
+  }
+
+  useEffect(()=>{
+    loadPlanets();
+  }, [])
 
   return (
     <Container>
@@ -31,7 +40,7 @@ function Planetas() {
         animate={{opacity: 1}} 
         transition={{ duration: 1 }}
       >
-        Encontre seu destino
+        Planetas atendidos
       </Title>
       <Body
         initial={{opacity: 0}} 
@@ -40,13 +49,14 @@ function Planetas() {
       >
 
         {
-          mapTemp.map(item => {
+          planets && planets.map(item => {
             return <PlanetCard
-              name={"Terra"}
-              size={"12.742km"}
-              mass={"5,972 × 10^24 kg"}
-              distance={"150 × 10^6 km"}
-              image={terra}
+              name={item.name}
+              size={`${item.size}km`}
+              mass={`${item.mass} × 10^24 kg`}
+              distance={`${item.distance} × 10^6 km`}
+              image={item.image}
+              sollar_system={item.sollar_system}
             />
           })
         }
