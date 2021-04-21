@@ -146,10 +146,22 @@ export const Body = styled.div`
     
     @media (max-width: 1024px){
         overflow: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        ::-webkit-scrollbar{
+            display: none;
+        }
     }
 
     @media (max-height: 900px){
         overflow: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        ::-webkit-scrollbar{
+            display: none;
+        }
     }
 `;
 

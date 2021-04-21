@@ -64,11 +64,11 @@ function Header() {
             <Link className="link" to="/viagem">
               Viagem
             </Link>
-            <Link className="link" to="/foguetes">
-              Foguetes
-            </Link>
             <Link className="link" to="/planetas">
               Planetas
+            </Link>
+            <Link className="link" to="/foguetes">
+              Foguetes
             </Link>
             <ButtonLink onClick={() => handleLogout()}>
               sair

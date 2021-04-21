@@ -27,6 +27,43 @@ export const Body = styled.div`
     align-items: center;
     justify-content: flex-start;
     width: 100%;
+
+    .name{
+        :hover{
+            ::before{
+                content: 'nome';
+                opacity: 1;
+                transition: 0.5s all;
+            }
+        }
+    }
+    .speed{
+        :hover{
+            ::before{
+                content: 'velocidade';
+                opacity: 1;
+                transition: 0.5s all;
+            }
+        }
+    }
+    .cost{
+        :hover{
+            ::before{
+                content: 'custo';
+                opacity: 1;
+                transition: 0.5s all;
+            }
+        }
+    }
+    .capacity{
+        :hover{
+            ::before{
+                content: 'capacidade';
+                opacity: 1;
+                transition: 0.5s all;
+            }
+        }
+    }
 `;
 
 export const Image = styled.img`
@@ -44,15 +81,32 @@ export const Attribute = styled.div`
     justify-content: space-between;
     padding: 10px;
     font-size: 12px;
-    text-transform: uppercase;
+    text-transform: lowercase;
     font-variant: small-caps;
     color: #FFF;
     width: 90%;
     margin-bottom: 5px;
     background-color: #FFF2;
+    height: 30px;
 
     .icon{
         font-size: 14px;
         color: #FFF5
+    }
+
+    :hover{
+        position: relative;
+        transition: 0.5s all;
+        height: 50px;
+        ::before{
+            font-size: 10px;
+            color: #FFF;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-variant: small-caps;
+            opacity: 0;
+            transition: 0.5s all;
+        }
     }
 `;

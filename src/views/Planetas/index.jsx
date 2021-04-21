@@ -40,7 +40,7 @@ function Planetas() {
         animate={{opacity: 1}} 
         transition={{ duration: 1 }}
       >
-        Planetas atendidos
+        Escolha o seu destino
       </Title>
       <Body
         initial={{opacity: 0}} 
@@ -56,7 +56,7 @@ function Planetas() {
               mass={`${item.mass} × 10^24 kg`}
               distance={`${item.distance} × 10^6 km`}
               image={item.image}
-              sollar_system={item.sollar_system}
+              sollar_system={item.sollar_systems}
             />
           })
         }

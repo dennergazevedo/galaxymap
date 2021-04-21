@@ -18,19 +18,19 @@ function RocketCard({ name,speed, cost, capacity, image }) {
     <Container>
       <Image src={image} alt={name}/>
       <Body>
-        <Attribute>
+        <Attribute className="name">
           <FaRocket className="icon" />
           {name}
         </Attribute>
-        <Attribute>
+        <Attribute className="speed">
           <HiLightningBolt className="icon" />
           {speed}ALH
         </Attribute>
-        <Attribute>
+        <Attribute className="cost">
           <FaBtc className="icon" />
           {`${Number(cost).toFixed(5)} BTC / ALH`}
         </Attribute>
-        <Attribute>
+        <Attribute className="capacity">
           <BsBatteryHalf className="icon" />
           {capacity} AL
         </Attribute>

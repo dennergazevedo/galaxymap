@@ -32,7 +32,7 @@ export default class RocketController {
       if (err) {
         return res.status(404).json("Rocket not found.");
       }
-      return res.status(200).json(rows)
+      return res.status(200).json(rows[0])
     })
   }
 

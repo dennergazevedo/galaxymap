@@ -32,7 +32,7 @@ export default class SollarSystemController {
       if (err) {
         return res.status(404).json("Sollar System not found.");
       }
-      return res.status(200).json(rows)
+      return res.status(200).json(rows[0])
     })
   }
 

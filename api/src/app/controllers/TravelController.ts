@@ -34,7 +34,7 @@ export default class TravelController {
       if (err) {
         return res.status(404).json("Travel not found.");
       }
-      return res.status(200).json(rows)
+      return res.status(200).json(rows[0])
     })
   }
 
