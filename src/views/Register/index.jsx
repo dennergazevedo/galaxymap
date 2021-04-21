@@ -69,7 +69,7 @@ function RegisterPage() {
   return (
     <Container>
       <Background src={background} alt="BACKGROUND" />
-      <Body>
+      <Body onSubmit={handleRegister}>
         <UserIcon src={userIcon} alt="USERICON" />
         <ToggleContainer show={show}>
           <div>
@@ -100,7 +100,7 @@ function RegisterPage() {
               />
           </div>
         </ToggleContainer>
-        <Button onClick={handleRegister}>REGISTRAR</Button>
+        <Button type='submit'>REGISTRAR</Button>
         <Link to="/" className="link">
           <Register>Já tem uma conta? Entre agora!</Register>
         </Link>

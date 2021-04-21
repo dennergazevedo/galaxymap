@@ -25,28 +25,36 @@ import Footer from '../../components/Footer';
 
 /* CONTEXT */
 import { useLogin } from '../../context';
+import { toast } from 'react-toastify';
 
 function Login() {
   const { handleLogin } = useLogin();
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const [show, setShow] = useState(false);
 
   const toggle = () => setShow(!show);
 
   function loginRequest(){
+    global.event.preventDefault();
     if(!show){
       toggle();
     }else{
-      handleLogin(email, password)
+      if(loading){
+        toast.info('Aguarde, carregando...');
+      }else{
+        setLoading(true);
+        handleLogin(email, password)
+      }
     }
   }
 
   return (
     <Container>
       <Background src={background} alt="BACKGROUND" />
-      <Body>
+      <Body onSubmit={loginRequest}>
         <UserIcon src={userIcon} alt="USERICON" />
         <ToggleContainer show={show}>
           <div>
@@ -68,7 +76,7 @@ function Login() {
               />
           </div>
         </ToggleContainer>
-        <Button onClick={loginRequest}>ENTRAR</Button>
+        <Button type="submit">{loading? 'CARREGANDO...' : 'ENTRAR'}</Button>
         <Link to="/register" className="link">
           <Register>Não tem uma conta? Cadastre-se!</Register>
         </Link>

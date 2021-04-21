@@ -56,6 +56,7 @@ export const LinkContainer = styled.div`
     font-variant: small-caps;
     text-transform: lowercase;
     margin: 0px 10px;
+    white-space: nowrap;
 
     :hover{
       font-weight: 600;

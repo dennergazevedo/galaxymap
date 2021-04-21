@@ -52,7 +52,7 @@ export class Routes {
 
     // TRAVEL
     app.post("/register-travel", this.travelController.register);
-    app.get("/search-all-travel", this.travelController.searchAll);
+    app.get("/search-all-travel/:email", this.travelController.searchAll);
     app.get("/search-travel/:id", this.travelController.search);
     app.put("/update-travel/:id", this.travelController.update);
     app.delete("/delete-travel/:id", this.travelController.delete);

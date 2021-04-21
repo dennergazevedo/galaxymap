@@ -9,20 +9,23 @@ interface ITravel {
   rockets_name: string;
   start_planet: string;
   destiny_planet: string;
+  date_start: string;
+  date_arrival: string;
 }
 
 interface IParams{
   id?: number;
+  email?: string;
 }
 
 export default class TravelController {
   async register(req: Request, res: Response) {
-    const { cost, destiny_planet, distance, rockets_name, start_planet, user_mail }: ITravel = req.body;
+    const { cost, destiny_planet, distance, rockets_name, start_planet, user_mail, date_start, date_arrival }: ITravel = req.body;
     con.query(
-      `INSERT INTO planets (cost, destiny_planet, distance, rockets_name, start_planet, user_mail) VALUES ('${cost}', '${destiny_planet}', '${distance}', '${rockets_name}', '${start_planet}', '${user_mail}')`, 
+      `INSERT INTO travel (cost, destiny_planet, distance, rockets_name, start_planet, user_mail, date_start, date_arrival) VALUES ('${cost}', '${destiny_planet}', '${distance}', '${rockets_name}', '${start_planet}', '${user_mail}', '${date_start}', '${date_arrival}')`, 
       (err, rows) => {
       if (err) throw err
-      return res.status(200).json(`Planet ${name} created with success!`)
+      return res.status(200).json(`Travel created with success!`)
     })
   }
 
@@ -39,8 +42,9 @@ export default class TravelController {
   }
 
   async searchAll(req: Request, res: Response) {
+    const { email }: IParams = req.params;
     con.query(
-      `SELECT * FROM planets`, 
+      `SELECT * FROM travel WHERE user_mail = '${email}'`, 
       (err, rows) => {
       if (err) {
         return res.status(404).json("Travels not found.");

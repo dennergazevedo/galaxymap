@@ -70,6 +70,9 @@ function Header() {
             <Link className="link" to="/foguetes">
               Foguetes
             </Link>
+            <Link className="link" to="/minhas-viagens">
+              Minhas Viagens
+            </Link>
             <ButtonLink onClick={() => handleLogout()}>
               sair
             </ButtonLink>

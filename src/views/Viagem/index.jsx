@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 /* ASSETS */
 import background from '../../assets/bg01.png';
@@ -19,10 +20,14 @@ import {
 import Header from '../../components/Header'; 
 import { TextField } from '@material-ui/core';
 import api from '../../services/api';
+import { toast } from 'react-toastify';
 
 function Viagem() {
 
+  const history = useHistory();
+
   const params = window.location.search;
+  const user = window.localStorage.getItem('@galaxymap:user');
 
   const [planets, setPlanets] = useState();
   const [startPlanet, setStartPlanet] = useState();
@@ -32,14 +37,42 @@ function Viagem() {
   const [startDate, setStartDate] = useState('');
   const [dataChegada, setDataChegada] = useState('-');
   const [value, setValue] = useState(0);
+  const [distance, setDistance] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   function handleDateStartChange(date){
     setStartDate(date);
   }
 
-  function handleBuy(){
+  async function handleBuy(){
     window.event.preventDefault();
-    window.alert("Indisponível!");
+    let user_mail = JSON.parse(user);
+    user_mail = user_mail.email;
+
+    if(value > 0 && dataChegada !== '-' && distance !== 0){
+      try{
+        setLoading(true);
+        await api.post('register-travel', {
+          cost: value, 
+          destiny_planet: destinationPlanet, 
+          distance, 
+          rockets_name: rocket, 
+          start_planet: destinationPlanet, 
+          user_mail,
+          date_start: startDate, 
+          date_arrival: dataChegada
+        })
+        toast.success('Ticket adquirido com sucesso!', { position: 'bottom-left' });
+        toast.info('Redirecionando...', { position: 'bottom-left' });
+        setTimeout(function(){
+          history.push('/minhas-viagens');
+        }, 3000)
+      }catch(err){
+        toast.error('Falha ao comprar Ticket, tente novamente em alguns instantes.', { position: 'bottom-left' })
+      }
+    }else{
+      toast.info('Aguarde, carregando...', { position: 'bottom-left' });
+    }
   }
 
   async function loadData(){
@@ -117,16 +150,30 @@ function Viagem() {
     const valorStart = Number(rkt.data.cost) * Number(startLocation);
     const valorTotal = valorDestination + valorStart;
 
-    setValue(Number(valorTotal));
+    if(Number(destinationLocation) + Number(startLocation) === 0){
+      setDistance(-1);
+    }else{
+      setDistance(Number(destinationLocation) + Number(startLocation));
+    }
+
+    if(Number(valorTotal) === 0){
+      setValue(Number(rkt.data.cost));
+    }else{
+      setValue(Number(valorTotal));
+    }
+
 
     const totalAL = Number(destinationLocation) + Number(startLocation);
     let totalDias = Number(totalAL) / Number(rkt.data.speed);
     totalDias = parseInt(totalDias);
+    if(totalDias === 0) {
+      totalDias = 2;
+    }
 
     let DateF = new Date(startDate);
     DateF.setDate(DateF.getDate() + totalDias);
 
-    const StringDate = `${DateF.getDate()}/${Number(DateF.getMonth()) + 1}/${DateF.getFullYear()}`;
+    const StringDate = `${Number(DateF.getMonth()) + 1}/${DateF.getDate()}/${DateF.getFullYear()}`;
 
     setDataChegada(StringDate);
   }
@@ -221,7 +268,7 @@ function Viagem() {
             <span>Valor (BTC)</span>
             <input value={value > 0 ? `${Number(value).toFixed(5)} BTC` : `Calculando...`} disabled/>
           </div>
-          <button className="buyButton" type="submit">COMPRAR TICKET</button>
+          <button className="buyButton" type="submit">{loading? 'CARREGANDO': 'COMPRAR TICKET'}</button>
         </Form>
       </Body>
     </Container>

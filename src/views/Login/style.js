@@ -37,7 +37,7 @@ export const Background = styled.img`
   z-index: -1;
 `;
 
-export const Body = styled.div`
+export const Body = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;

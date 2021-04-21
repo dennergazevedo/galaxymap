@@ -43,6 +43,8 @@ export const travel = `CREATE TABLE IF NOT EXISTS lcqqpl5pd6dme6c8.travel (
   rockets_name VARCHAR(50) NOT NULL,
   start_planet VARCHAR(100) NOT NULL,
   destiny_planet VARCHAR(100) NOT NULL,
+  date_start VARCHAR(100) NOT NULL,
+  date_arrival VARCHAR(100) NOT NULL,
   PRIMARY KEY (id),
   CONSTRAINT fk_travel_users
     FOREIGN KEY (user_mail)

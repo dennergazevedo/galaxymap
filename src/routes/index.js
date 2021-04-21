@@ -14,6 +14,7 @@ import Embarque from '../views/Embarque';
 import Viagem from '../views/Viagem';
 import Foguetes from '../views/Foguetes';
 import Planetas from '../views/Planetas';
+import MinhasViagens from '../views/MinhasViagens';
 
 export default function Routes(){
 
@@ -27,6 +28,7 @@ export default function Routes(){
                 <Route path="/viagem" exact component={Viagem} isPrivate/>
                 <Route path="/foguetes" exact component={Foguetes} isPrivate/>
                 <Route path="/planetas" exact component={Planetas} isPrivate/>
+                <Route path="/minhas-viagens" exact component={MinhasViagens} isPrivate/>
                 <Route path="/" component={NotFound} />
             </Switch>
         </BrowserRouter>
