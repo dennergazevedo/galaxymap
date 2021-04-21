@@ -45,8 +45,7 @@ export const LinkContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  max-width: 350px;
+  width: auto;
 
   .link{
     font-weight: 400;
@@ -57,6 +56,7 @@ export const LinkContainer = styled.div`
     text-transform: lowercase;
     margin: 0px 10px;
     white-space: nowrap;
+    width: 100%;
 
     :hover{
       font-weight: 600;
@@ -104,6 +104,7 @@ export const MenuContainer = styled.div`
     font-size: 20px;
     color: #333;
     margin-bottom: 20px;
+    cursor: pointer;
   }
 
   .item{
@@ -115,10 +116,11 @@ export const MenuContainer = styled.div`
     justify-content: space-between;
     text-transform: lowercase;
     font-variant: small-caps;
-    font-weight: 600;
+    font-weight: 500;
     padding: 15px 0px;
     border-bottom: 1px solid #F2F2F2;
     color: #333;
+    font-size: 14px;
 
     .icon{
       color: #60CAAD;

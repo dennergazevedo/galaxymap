@@ -19,7 +19,7 @@ export default function Travel( { travel } ) {
       <Identification>
         TICKET: 
         <FaTicketAlt className="icon"/>
-        {("0000000000" + travel.id).slice(-10)}
+        {("00000000" + travel.id).slice(-8)}
       </Identification>
       <Body>
         <Part>
@@ -41,6 +41,14 @@ export default function Travel( { travel } ) {
         <Part>
           <Title>Valor Pago</Title>
           <Info>{travel.cost}BTC</Info>
+        </Part>
+        <Part>
+          <Title>Data da Partida</Title>
+          <Info>{travel.date_start}</Info>
+        </Part>
+        <Part>
+          <Title>Data da Chegada</Title>
+          <Info>{String(travel.date_arrival).replace('/', '-').replace('/','-')}</Info>
         </Part>
       </Body>
     </Container>

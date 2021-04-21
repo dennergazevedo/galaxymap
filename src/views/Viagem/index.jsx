@@ -57,7 +57,7 @@ function Viagem() {
           destiny_planet: destinationPlanet, 
           distance, 
           rockets_name: rocket, 
-          start_planet: destinationPlanet, 
+          start_planet: startPlanet, 
           user_mail,
           date_start: startDate, 
           date_arrival: dataChegada

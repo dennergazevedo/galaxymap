@@ -10,7 +10,8 @@ import {
   FaBars,
   FaMapSigns,
   FaRocket,
-  FaUser
+  FaUser,
+  FaDoorOpen
 } from 'react-icons/fa';
 import { 
   IoIosPlanet
@@ -101,9 +102,12 @@ function Header() {
                 <Link to="/planetas">
                   <span className="item"><IoIosPlanet className="icon"/> Planetas</span>
                 </Link>
-                <Link to="/perfil">
-                  <span className="item"><FaUser className="icon"/> Perfil</span>
+                <Link className="link" to="/minhas-viagens">
+                  <span className="item"><FaUser className="icon"/> Minhas Viagens</span>
                 </Link>
+                <div className="link" onClick={() => handleLogout()}>
+                  <span className="item"><FaDoorOpen className="icon"/> Sair</span>
+                </div>
               </MenuContainer>
             </SwipeableDrawer>
           </>
