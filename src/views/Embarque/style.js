@@ -45,7 +45,7 @@ export const CardBody = styled(motion.div)`
     justify-content: space-around;
     width: auto;
     max-width: 1400px;
-    margin: 100px auto;
+    margin: 50px auto;
 
     @media (max-width: 1024px){
         margin-top: 0px;
