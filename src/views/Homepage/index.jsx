@@ -25,9 +25,10 @@ import Footer from '../../components/Footer';
 
 function Homepage() {
 
+  const storageUser = window.localStorage.getItem('@galaxymap:user');
+
   const history = useHistory();
   const [showCards, setShowCards] = useState(false);
-  const [name] = useState('Nome do Usuário');
 
   const toggleCards = () => {
     setShowCards(true);
@@ -52,7 +53,7 @@ function Homepage() {
           nessa jornada!
         </SubtitlePage>
         <DescribeTitle>
-          Ora ora, quem apareceu por aqui, bom te ver {name}. Seja bem-vindo meu caro amigo! Desde já, 
+          Ora ora, quem apareceu por aqui, bom te ver {storageUser.name}. Seja bem-vindo meu caro amigo! Desde já, 
           te convido a entrar em nosso foguete, pois tem vários planetas que acontecem coisas inusitadas…. 
           (vrummmmm) faça muito barulho, e venha nessa jornada conosco.
         </DescribeTitle>

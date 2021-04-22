@@ -63,7 +63,7 @@ function Header() {
               home
             </Link>
             <Link className="link" to="/viagem">
-              Viagem
+              Ticket
             </Link>
             <Link className="link" to="/planetas">
               Planetas
