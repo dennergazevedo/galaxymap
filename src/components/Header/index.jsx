@@ -94,7 +94,7 @@ function Header() {
                   <span className="item"><FaMapSigns className="icon"/> Home</span>
                 </Link>
                 <Link to="/viagem">
-                  <span className="item"><FaMapSigns className="icon"/> Viagem</span>
+                  <span className="item"><FaMapSigns className="icon"/> Ticket</span>
                 </Link>
                 <Link to="/foguetes">
                   <span className="item"><FaRocket className="icon"/> Foguetes</span>
