@@ -43,7 +43,7 @@ function RegisterPage() {
       if(name.length >= 4){
         if(password.length >= 8){
           if(validator.isEmail(email)){
-            const response = await api.post('register-user', {
+            const response = await api.post('/register-user', {
               name,
               email,
               password
