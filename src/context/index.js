@@ -60,6 +60,9 @@ function useLogin() {
       },3000)
     }catch(err){
       toast.error('Ops! Algo deu errado, verifique os dados e tente novamente.', { position: 'bottom-left' });
+      setTimeout(function(){
+        window.location.reload();
+      },3000)
     }
   }
   return {

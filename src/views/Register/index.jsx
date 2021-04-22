@@ -34,32 +34,41 @@ function RegisterPage() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState('');
 
   const [show] = useState(true);
 
   async function handleRegister(){
     global.event.preventDefault();
     try{
-      if(name.length >= 4){
-        if(password.length >= 8){
-          if(validator.isEmail(email)){
-            const response = await api.post('/register-user', {
-              name,
-              email,
-              password
-            })
-            toast.success(response.data, { position: 'bottom-left '});
-            setTimeout(function(){
-              history.push('/home');
-            }, 3000)
+      if(loading){
+        toast.info('Redirecionando...', { position: 'bottom-left '});
+        setTimeout(function(){
+          history.push('/');
+        }, 3000)
+      }else {
+        if(name.length >= 4){
+          if(password.length >= 8){
+            if(validator.isEmail(email)){
+              setLoading(true);
+              const response = await api.post('/register-user', {
+                name,
+                email,
+                password
+              })
+              toast.success(response.data, { position: 'bottom-left '});
+              setTimeout(function(){
+                history.push('/home');
+              }, 3000)
+            }else{
+              toast.info('Pleasy, enter a valid email address.', { position: 'bottom-left '})
+            }
           }else{
-            toast.info('Pleasy, enter a valid email address.', { position: 'bottom-left '})
+            toast.info('Password must be at least 8 characters.', { position: 'bottom-left '});
           }
         }else{
-          toast.info('Password must be at least 8 characters.', { position: 'bottom-left '});
+          toast.info('Name must be at least 4 characters.', { position: 'bottom-left '})
         }
-      }else{
-        toast.info('Name must be at least 4 characters.', { position: 'bottom-left '})
       }
     }catch(err){
       toast.error('Failed, check your data and try again!', { position: 'bottom-left '})
